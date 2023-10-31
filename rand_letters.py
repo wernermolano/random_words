@@ -4,6 +4,9 @@
 import string
 import random
 
+# initialise random_letters
+random_letters = ""
+
 # ask user for number of letters - between 3 and 9
 while True:
     try:
@@ -17,3 +20,11 @@ while True:
         raise ValueError()
     except ValueError:
         print("Input must be a WHOLE number between 3 and 9.")
+
+
+# generate random letters dyanamically 
+for i in range(n_ltrs) : # change n_ltrs into integer
+    random_letter = random.choice(string.ascii_uppercase)
+    random_letters += random_letter
+
+print(f"Random letters are: {random_letters}")
