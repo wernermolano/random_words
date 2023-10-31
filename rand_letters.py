@@ -4,6 +4,9 @@
 import string
 import random
 
+# initialise random_letters
+random_letters = ""
+
 # ask user for number of letters - between 3 and 9
 while True:
     try:
