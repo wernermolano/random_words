@@ -37,9 +37,9 @@ while True:
         print(f"Input must be between 0 and {n_ltrs}.")
 
 
-# generate random letters dyanamically 
-for i in range(n_ltrs) : # change n_ltrs into integer
-    random_letter = random.choice(string.ascii_uppercase)
-    random_letters += random_letter
+# generate random vowel letter dyanamically 
+for i in range(n_vwls) : # change n_ltrs into integer
+    random_vowel = random.choice(vowels)
+    random_vowels += random_vowel
 
-print(f"Random letters are: {random_letters}")
+print(f"Random letters are: {random_vowels}")
