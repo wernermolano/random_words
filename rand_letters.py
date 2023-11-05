@@ -46,4 +46,7 @@ for i in range(n_vwls) :
     random_vowel = random.choice(vowels)
     random_vowels += random_vowel
 
-print(f"Random letters are: {random_vowels}")
+for i in range(n_ltrs - n_vwls) : 
+    random_consonant = random.choice(consonants)
+    random_consonants += random_consonant
+
