@@ -46,7 +46,16 @@ for i in range(n_vwls) :
     random_vowel = random.choice(vowels)
     random_vowels += random_vowel
 
+# generate random consonants based on remaining letters needed
 for i in range(n_ltrs - n_vwls) : 
     random_consonant = random.choice(consonants)
     random_consonants += random_consonant
 
+# shuffle letters generated
+letters_comb = random_vowels + random_consonants
+ltrs_list = list(letters_comb)
+random.shuffle(ltrs_list)
+letters_generated = ' '.join(ltrs_list)
+
+# print letters generated
+print(f"\nRandom letters are: {letters_generated}")
