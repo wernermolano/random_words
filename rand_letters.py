@@ -24,22 +24,21 @@ while True:
             break
         raise ValueError()
     except ValueError:
-        print("Input must be a WHOLE number between 3 and 9.")
+        print("\nInput must be a WHOLE number between 3 and 9.")
 
 # ask user for number of vowels - must not exceed n_ltrs
 while True:
     try:
-        n_vwls = input(f"Enter number of vowels (must not exceed {n_ltrs}): ")
+        n_vwls = input(f"\nEnter number of vowels (must not exceed {n_ltrs}): ")
         if n_vwls.isdigit():
-            n_vwls = int(n_vwls)
+            n_vwls = int(n_vwls) # change n_vwls into integer
         else:
             raise ValueError()
         if 0 <= n_vwls <= n_ltrs:
             break
         raise ValueError()
     except ValueError:
-        print(f"Input must be between 0 and {n_ltrs}.")
-
+        print(f"\nInput must be between 0 and {n_ltrs}.")
 
 # generate random vowel letters dyanamically 
 for i in range(n_vwls) : 
