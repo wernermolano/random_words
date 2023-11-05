@@ -4,7 +4,7 @@
 import string
 import random
 
-# initialise variables needed
+# initialise variables for vowels 
 random_vowels = ""
 vowels = "AEIOU"
 
@@ -13,7 +13,7 @@ while True:
     try:
         n_ltrs = input("Enter a number between 3 and 9: ")
         if n_ltrs.isdigit():
-            n_ltrs = int(n_ltrs)
+            n_ltrs = int(n_ltrs) # change n_ltrs into integer
         else:
             raise ValueError()
         if 3 <= n_ltrs <= 9:
@@ -22,7 +22,7 @@ while True:
     except ValueError:
         print("Input must be a WHOLE number between 3 and 9.")
 
-# ask user for n umber of vowels - must not exceed n_ltrs
+# ask user for number of vowels - must not exceed n_ltrs
 while True:
     try:
         n_vwls = input(f"Enter number of vowels (must not exceed {n_ltrs}): ")
@@ -37,8 +37,8 @@ while True:
         print(f"Input must be between 0 and {n_ltrs}.")
 
 
-# generate random vowel letter dyanamically 
-for i in range(n_vwls) : # change n_ltrs into integer
+# generate random vowel letters dyanamically 
+for i in range(n_vwls) : 
     random_vowel = random.choice(vowels)
     random_vowels += random_vowel
 
