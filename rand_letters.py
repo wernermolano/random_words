@@ -8,6 +8,10 @@ import random
 random_vowels = ""
 vowels = "AEIOU"
 
+# initialise variables for consonants
+consonants = list(set(string.ascii_uppercase) - set(vowels)) 
+random_consonants = ""
+
 # ask user for number of letters - between 3 and 9
 while True:
     try:
