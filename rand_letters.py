@@ -5,26 +5,32 @@ import string
 import random
 
 # initialise variables for vowels 
-random_vowels = ""
 vowels = "AEIOU"
+last_vowel = ""
+random_vowels = ""
 
 # initialise variables for consonants
 consonants = list(set(string.ascii_uppercase) - set(vowels)) 
+last_consonant = ""
 random_consonants = ""
 
-# ask user for number of letters - between 3 and 9
+#pre-shuffle letters
+random.shuffle(consonants)
+random.shuffle(list(vowels))
+
+# ask user for number of letters - between 3 and 10
 while True:
     try:
-        n_ltrs = input("Enter a number between 3 and 9: ")
+        n_ltrs = input("Enter a number between 3 and 10: ")
         if n_ltrs.isdigit():
             n_ltrs = int(n_ltrs) # change n_ltrs into integer
         else:
             raise ValueError()
-        if 3 <= n_ltrs <= 9:
+        if 3 <= n_ltrs <= 10:
             break
         raise ValueError()
     except ValueError:
-        print("\nInput must be a WHOLE number between 3 and 9.")
+        print("\nInput must be a WHOLE number between 3 and 10.")
 
 # ask user for number of vowels - must not exceed n_ltrs
 while True:
@@ -41,14 +47,14 @@ while True:
         print(f"\nInput must be between 0 and {n_ltrs}.")
 
 # generate random vowel letters dyanamically 
-for i in range(n_vwls) : 
-    random_vowel = random.choice(vowels)
-    random_vowels += random_vowel
+random_vowel = random.sample(vowels, n_vwls - 1) # without replacement 
+last_vowel = random.choice(vowels)
+random_vowels = random_vowel + list(last_vowel)
 
 # generate random consonants based on remaining letters needed
-for i in range(n_ltrs - n_vwls) : 
-    random_consonant = random.choice(consonants)
-    random_consonants += random_consonant
+random_consonant = random.sample(consonants, n_ltrs - n_vwls - 1) # without replacement 
+last_consonant = random.choice(consonants)
+random_consonants = random_consonant + list(last_consonant)
 
 # shuffle letters generated
 letters_comb = random_vowels + random_consonants
