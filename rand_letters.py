@@ -12,19 +12,18 @@ vowels = "AEIOU"
 consonants = list(set(string.ascii_uppercase) - set(vowels)) 
 random_consonants = ""
 
-# ask user for number of letters - between 3 and 9
 while True:
     try:
-        n_ltrs = input("Enter a number between 3 and 9: ")
+        n_ltrs = input("Enter a number between 3 and 10: ")
         if n_ltrs.isdigit():
             n_ltrs = int(n_ltrs) # change n_ltrs into integer
         else:
             raise ValueError()
-        if 3 <= n_ltrs <= 9:
+        if 3 <= n_ltrs <= 10:
             break
         raise ValueError()
     except ValueError:
-        print("\nInput must be a WHOLE number between 3 and 9.")
+        print("\nInput must be a WHOLE number between 3 and 10.")
 
 # ask user for number of vowels - must not exceed n_ltrs
 while True:
