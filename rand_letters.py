@@ -5,13 +5,20 @@ import string
 import random
 
 # initialise variables for vowels 
-random_vowels = ""
 vowels = "AEIOU"
+last_vowel = ""
+random_vowels = ""
 
 # initialise variables for consonants
 consonants = list(set(string.ascii_uppercase) - set(vowels)) 
+last_consonant = ""
 random_consonants = ""
 
+#pre-shuffle letters
+random.shuffle(consonants)
+random.shuffle(list(vowels))
+
+# ask user for number of letters - between 3 and 10
 while True:
     try:
         n_ltrs = input("Enter a number between 3 and 10: ")
