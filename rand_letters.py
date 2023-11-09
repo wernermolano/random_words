@@ -40,14 +40,14 @@ while True:
         print(f"\nInput must be between 0 and {n_ltrs}.")
 
 # generate random vowel letters dyanamically 
-for i in range(n_vwls) : 
-    random_vowel = random.choice(vowels)
-    random_vowels += random_vowel
+random_vowel = random.sample(vowels, n_vwls - 1) # without replacement 
+last_vowel = random.choice(vowels)
+random_vowels = random_vowel + list(last_vowel)
 
 # generate random consonants based on remaining letters needed
-for i in range(n_ltrs - n_vwls) : 
-    random_consonant = random.choice(consonants)
-    random_consonants += random_consonant
+random_consonant = random.sample(consonants, n_ltrs - n_vwls - 1) # without replacement 
+last_consonant = random.choice(consonants)
+random_consonants = random_consonant + list(last_consonant)
 
 # shuffle letters generated
 letters_comb = random_vowels + random_consonants
