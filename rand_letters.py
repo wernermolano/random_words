@@ -3,6 +3,7 @@
 # import needed modules
 import string
 import random
+from PyDictionary import PyDictionary
 
 # initialise variables for vowels 
 vowels = "AEIOU"
@@ -19,31 +20,31 @@ random.shuffle(consonants)
 random.shuffle(list(vowels))
 
 # ask user for number of letters - between 3 and 10
-while True:
-    try:
+while True :
+    try :
         n_ltrs = input("Enter a number between 3 and 10: ")
-        if n_ltrs.isdigit():
+        if n_ltrs.isdigit() :
             n_ltrs = int(n_ltrs) # change n_ltrs into integer
         else:
             raise ValueError()
-        if 3 <= n_ltrs <= 10:
+        if 3 <= n_ltrs <= 10 :
             break
         raise ValueError()
-    except ValueError:
+    except ValueError :
         print("\nInput must be a WHOLE number between 3 and 10.")
 
 # ask user for number of vowels - must not exceed n_ltrs
 while True:
-    try:
+    try :
         n_vwls = input(f"\nEnter number of vowels (must not exceed {n_ltrs}): ")
-        if n_vwls.isdigit():
+        if n_vwls.isdigit() :
             n_vwls = int(n_vwls) # change n_vwls into integer
-        else:
+        else :
             raise ValueError()
-        if 0 <= n_vwls <= n_ltrs:
+        if 0 <= n_vwls <= n_ltrs :
             break
         raise ValueError()
-    except ValueError:
+    except ValueError :
         print(f"\nInput must be between 0 and {n_ltrs}.")
 
 # generate random vowel letters dyanamically 
@@ -63,4 +64,27 @@ random.shuffle(ltrs_list)
 letters_generated = ' '.join(ltrs_list)
 
 # print letters generated
-print(f"\nRandom letters are: {letters_generated}")
+print(f"\nRandom letters are: {letters_generated}\n")
+
+
+##### This code ask for answer input and check against dictionary #####
+
+# initiliase dictionary  
+dictionary = PyDictionary()
+
+# get user input and check against dictionary
+
+while True :
+    try :
+        ans = input("Enter your answer: ") # ask for user input
+        if bool(dictionary.meaning(ans, disable_errors = True)) == True : # disable error as it'll be capture by the exception
+            print(f"\nYour answer {ans.upper()} is correct!\n")
+            break
+        else :
+            raise ValueError()
+    except ValueError :
+        print(f"\nYour answer {ans.upper()} is not a valid word. Please try again.\n")
+        
+
+
+
