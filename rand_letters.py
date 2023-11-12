@@ -36,12 +36,12 @@ while True :
 # ask user for number of vowels - must not exceed n_ltrs
 while True:
     try :
-        n_vwls = input(f"\nEnter number of vowels (must not exceed {n_ltrs}): ")
+        n_vwls = input(f"\nEnter number of vowels (must not exceed {n_ltrs - 1}): ")
         if n_vwls.isdigit() :
             n_vwls = int(n_vwls) # change n_vwls into integer
         else :
             raise ValueError()
-        if 0 <= n_vwls <= n_ltrs :
+        if 0 <= n_vwls <= n_ltrs - 1 :
             break
         raise ValueError()
     except ValueError :
