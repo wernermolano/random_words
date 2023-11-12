@@ -36,20 +36,28 @@ while True :
 # ask user for number of vowels - must not exceed n_ltrs
 while True:
     try :
-        n_vwls = input(f"\nEnter number of vowels (must not exceed {n_ltrs}): ")
+        n_vwls = input(f"\nEnter number of vowels (must not exceed {n_ltrs - 1}): ")
         if n_vwls.isdigit() :
             n_vwls = int(n_vwls) # change n_vwls into integer
         else :
             raise ValueError()
-        if 0 <= n_vwls <= n_ltrs :
+        if 0 <= n_vwls <= n_ltrs - 1 :
             break
         raise ValueError()
     except ValueError :
-        print(f"\nInput must be between 0 and {n_ltrs}.")
+        print(f"\nInput must be between 0 and {n_ltrs - 1}.")
 
-# generate random vowel letters dyanamically 
-random_vowel = random.sample(vowels, n_vwls - 1) # without replacement 
-last_vowel = random.choice(vowels)
+# generate random vowel letters dyanamically
+if 1 <= n_vwls <= 5 :
+    random_vowel = random.sample(vowels, n_vwls - 1) # without replacement 
+    last_vowel = random.choice(vowels)
+elif n_vwls == 0 : # create empty list of vowels if user chooses 0 vowels
+    random_vowel = []
+    last_vowel = []
+else : # avoid errors if user choose more than 5 vowels and using random sampling without replacement 
+    random_vowel = random.sample(vowels, 5) 
+    last_vowel = random.sample(vowels, n_vwls - 5) # without replacement 
+
 random_vowels = random_vowel + list(last_vowel)
 
 # generate random consonants based on remaining letters needed
@@ -84,7 +92,3 @@ while True :
             raise ValueError()
     except ValueError :
         print(f"\nYour answer {ans.upper()} is not a valid word. Please try again.\n")
-        
-
-
-
