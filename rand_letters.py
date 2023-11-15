@@ -93,4 +93,4 @@ while True :
         else :
             raise ValueError()
     except ValueError :
-        print(f"\nYour answer {ans.upper()} is not a valid word. Please try again.\n")
+        print(f"\nYour answer {chk} is not a valid word or has letter(s) not in the list. Please try again.\n")
