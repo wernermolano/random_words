@@ -85,9 +85,11 @@ dictionary = PyDictionary()
 while True :
     try :
         ans = input("Enter your answer: ") # ask for user input
-        if bool(dictionary.meaning(ans, disable_errors = True)) == True : # disable error as it'll be capture by the exception
-            print(f"\nYour answer {ans.upper()} is correct!\n")
-            break
+        chk = ans.upper() # put to upper case before checking it against letters generated
+        if (set(chk).issubset(ltrs_list)
+            and bool(dictionary.meaning(chk, disable_errors = True)) == True) : # disable error as it'll be capture by the exception
+                print(f"\nYour answer {chk} is correct!\n")
+                break
         else :
             raise ValueError()
     except ValueError :
