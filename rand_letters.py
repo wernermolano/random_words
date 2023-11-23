@@ -4,6 +4,7 @@
 import string
 import random
 from PyDictionary import PyDictionary
+import sys
 
 # initialise variables for vowels 
 vowels = "AEIOU"
@@ -19,25 +20,35 @@ random_consonants = ""
 random.shuffle(consonants)
 random.shuffle(list(vowels))
 
+# Let user know how to terminate the program anytime
+print("\n")
+print("NOTE: To terminate the program at anytime type: \"STP\"\n\n")
+
 # ask user for number of letters - between 3 and 10
 while True :
     try :
         n_ltrs = input("Enter a number between 3 and 10: ")
-        if n_ltrs.isdigit() :
+        if n_ltrs == "STP" :
+            print("\n")
+            sys.exit(0)
+        elif n_ltrs.isdigit() :
             n_ltrs = int(n_ltrs) # change n_ltrs into integer
-        else:
+        else :
             raise ValueError()
         if 3 <= n_ltrs <= 10 :
             break
         raise ValueError()
     except ValueError :
-        print("\nInput must be a WHOLE number between 3 and 10.")
+        print("\nInput must be a WHOLE number between 3 and 10.\n")
 
 # ask user for number of vowels - must not exceed n_ltrs
 while True:
     try :
         n_vwls = input(f"\nEnter number of vowels (must not exceed {n_ltrs - 1}): ")
-        if n_vwls.isdigit() :
+        if n_vwls == "STP" :
+            print("\n")
+            sys.exit(0)
+        elif n_vwls.isdigit() :
             n_vwls = int(n_vwls) # change n_vwls into integer
         else :
             raise ValueError()
@@ -86,7 +97,10 @@ while True :
     try :
         ans = input("Enter your answer: ") # ask for user input
         chk = ans.upper() # put to upper case before checking it against letters generated
-        if (set(chk).issubset(ltrs_list)
+        if ans == "STP" :
+            print("\n")
+            sys.exit(0)
+        elif (set(chk).issubset(ltrs_list)
             and bool(dictionary.meaning(chk, disable_errors = True)) == True) : # disable error as it'll be capture by the exception
                 print(f"\nYour answer {chk} is correct!\n")
                 break
