@@ -16,30 +16,16 @@ consonants = list(set(string.ascii_uppercase) - set(vowels))
 last_consonant = ""
 random_consonants = ""
 
-#pre-shuffle letters
+# pre-shuffle letters
 random.shuffle(consonants)
 random.shuffle(list(vowels))
 
+# number of max letters
+n_ltrs = 10
+
 # Let user know how to terminate the program anytime
 print("\n")
-print("NOTE: To terminate the program at anytime type: \"STP\"\n\n")
-
-# ask user for number of letters - between 3 and 10
-while True :
-    try :
-        n_ltrs = input("Enter a number between 3 and 10: ")
-        if n_ltrs == "STP" :
-            print("\n")
-            sys.exit(0)
-        elif n_ltrs.isdigit() :
-            n_ltrs = int(n_ltrs) # change n_ltrs into integer
-        else :
-            raise ValueError()
-        if 3 <= n_ltrs <= 10 :
-            break
-        raise ValueError()
-    except ValueError :
-        print("\nInput must be a WHOLE number between 3 and 10.\n")
+print("NOTE: To terminate the program at anytime type: \"STP\"\n")
 
 # ask user for number of vowels - must not exceed n_ltrs
 while True:
